@@ -33,7 +33,7 @@ createApp({
                 this.currentIndex = (this.currentIndex === 0) ? this.slides.length - 1 : Number(this.currentIndex - 1);
         },
         nextSlide(){
-                this.currentIndex = (this.currentIndex === this.slides.length - 1) ? 0 : Number(this.currentIndex + 1);
-        }
+                this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+        },
     }
 }).mount("#app")

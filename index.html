@@ -16,8 +16,7 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
-                    <template v-for="(path, index) in slides" :key="index" v-show="currentIndex === index">
+                <div class="item" v-for="(path, index) in slides" :key="index" v-show="currentIndex === index">
                         <img  :src="'./'+ path.image" alt="img{{currentIndex}}"/>
                         <div class="text">
                             <h3 >{{path.title}}</h3>
@@ -25,25 +24,12 @@
                                 {{path.text}}
                             </p>
                         </div>
-                    </template>
                 </div>
                     <div class="thumbs">
                         <div @click="prevSlide" class="prev"></div>
                         <div @click="nextSlide" class="next"></div>
-                        <div class="thumb active">
-                            <img src="img/01.webp" alt="Svezia" />
-                        </div>
-                        <div class="thumb">
-                            <img src="img/02.webp" alt="Ratchet & Clank" />
-                        </div>
-                        <div class="thumb">
-                            <img src="img/03.webp" alt="Fortnite" />
-                        </div>
-                        <div class="thumb">
-                            <img src="img/04.webp" alt="Stray" />
-                        </div>
-                        <div class="thumb">
-                            <img src="img/05.webp" alt="Avengers" />
+                        <div v-for="(slide, index) in slides" :key="index" :class="{ 'thumb': true, 'active': index === currentIndex }">
+                            <img :src="slide.image" :alt="slide.title" />
                         </div>
                     </div>
                 
