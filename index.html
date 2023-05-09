@@ -17,37 +17,36 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <template v-for="path in slides">
-                        <img  :src="'./'+ path.image" :alt="slides[0].title" />
+                    <template v-for="(path, tabindex) in slides" :key="tabindex" v-show="currentIndex === index">
+                        <img  :src="'./'+ path.image" alt="img{{tabindex}}"/>
                         <div class="text">
-                            <h3 >{{slides[0].title}}</h3>
+                            <h3 >{{path.title}}</h3>
                             <p>
-                                {{slides[0].text}}
+                                {{path.text}}
                             </p>
                         </div>
                     </template>
                 </div>
-
-                <div class="thumbs">
-                    <div @click="prevSlide" class="prev"></div>
-                    <div @click="nextSlide" class="next"></div>
-                    <div class="thumb active">
-                        <img src="img/01.webp" alt="Svezia" />
+                    <div class="thumbs">
+                        <div @click="prevSlide" class="prev"></div>
+                        <div @click="nextSlide" class="next"></div>
+                        <div class="thumb active">
+                            <img src="img/01.webp" alt="Svezia" />
+                        </div>
+                        <div class="thumb">
+                            <img src="img/02.webp" alt="Ratchet & Clank" />
+                        </div>
+                        <div class="thumb">
+                            <img src="img/03.webp" alt="Fortnite" />
+                        </div>
+                        <div class="thumb">
+                            <img src="img/04.webp" alt="Stray" />
+                        </div>
+                        <div class="thumb">
+                            <img src="img/05.webp" alt="Avengers" />
+                        </div>
                     </div>
-                    <div class="thumb">
-                        <img src="img/02.webp" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.webp" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.webp" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.webp" alt="Avengers" />
-                    </div>
-                </div>
-
+                
             </div>
         </div>
 
