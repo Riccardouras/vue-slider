@@ -17,7 +17,7 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item" v-for="(path, index) in slides" :key="index" v-show="currentIndex === index">
-                    <img :src="'./'+ path.image" alt="img{{currentIndex}}" />
+                    <img :src="'./'+ path.image" :alt="path.title" />
                     <div class="text">
                         <h3>{{path.title}}</h3>
                         <p>
