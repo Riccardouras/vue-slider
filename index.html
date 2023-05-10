@@ -17,25 +17,24 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item" v-for="(path, index) in slides" :key="index" v-show="currentIndex === index">
-                        <img  :src="'./'+ path.image" alt="img{{currentIndex}}"/>
-                        <div class="text">
-                            <h3 >{{path.title}}</h3>
-                            <p>
-                                {{path.text}}
-                            </p>
-                        </div>
-                </div>
-                    <div class="thumbs">
-                        <div @click="prevSlide" class="prev"></div>
-                        <div @click="nextSlide" class="next"></div>
-                        <div v-for="(slide, index) in slides" :key="index" :class="{ 'thumb': true, 'active': index === currentIndex }">
-                            <img :src="slide.image" :alt="slide.title" />
-                        </div>
+                    <img :src="'./'+ path.image" alt="img{{currentIndex}}" />
+                    <div class="text">
+                        <h3>{{path.title}}</h3>
+                        <p>
+                            {{path.text}}
+                        </p>
                     </div>
-                
+                </div>
+                <div class="thumbs">
+                    <div @click="prevSlide" class="prev"></div>
+                    <div @click="nextSlide" class="next"></div>
+                    <div v-for="(slide, index) in slides" :key="index"
+                        :class="{ 'thumb': true, 'active': index === currentIndex }">
+                        <img :src="slide.image" :alt="slide.title" />
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
