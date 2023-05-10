@@ -14,7 +14,7 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" tabindex="0" @mouseover="stopAutoPlay" @keyup.up="nextSlide" @mouseleave="startAutoPlay">
 
                 <div class="item" v-for="(path, index) in slides" :key="index" v-show="currentIndex === index">
                     <img :src="'./'+ path.image" :alt="path.title" />

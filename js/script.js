@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             currentIndex: 0,
+            autoscroll: null,
         slides : [
     {
         image: 'img/01.webp',
@@ -35,5 +36,19 @@ createApp({
         nextSlide(){
                 this.currentIndex = (this.currentIndex + 1) % this.slides.length;
         },
-    }
-}).mount("#app")
+        stopAutoPlay(){
+            clearInterval(this.autoscroll);
+            this.autoscroll = null;
+        },
+        startAutoPlay(){
+            this.autoscroll = setInterval(() => {
+                this.nextSlide();
+              }, 1000);
+        },
+       
+},
+    mounted() {
+        this.startAutoPlay();
+        this.stopAutoPlay();
+    },
+}).mount("#app");
